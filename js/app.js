@@ -46,7 +46,7 @@ function navbar_builder()
   {
     const sectionID = section.id;
     const sectiondatanav = section.dataset.nav;
-    navlist += `<li><a class = "menu__link" href="#${sectionID}">${sectiondatanav}</a> </li>`
+    navlist += `<li><a class = "menu__link" >${sectiondatanav}</a> </li>`
   }
   // add sections to navbar
   navigation.innerHTML = navlist;
@@ -117,6 +117,15 @@ mybutton.addEventListener('click',topFunction)
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+}
+//scrolling to specific sections from the navbar
+for(let i =0; i < items.length; i++)
+{
+  items[i].addEventListener('click', function scroll ()
+  {
+    let element = document.getElementById(sections[i].id.toString());
+    element.scrollIntoView();
+  });
 }
 
 
